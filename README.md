@@ -1,13 +1,12 @@
 # Projects
 
 
-# Project 1 - Graffiti Analysis of Vancouver City
+# Project 1 - Graffiti Analysis of Vancouver City Areas
 
 ## Project Description:
 Performing a descriptive data analysis on the Vancouver Graffiti dataset using AWS services to ingest and analyze data efficiently, uncovering the number of graffiti incidents in the Sunset and Renfrew-Collingwood areas.
 
-## Project Title:
-Understanding Graffiti in Vancouver: A Descriptive Analysis Using AWS
+## Understanding Graffiti in Vancouver: A Descriptive Analysis Using AWS
 
 ## Objective:
 This project aimed to demonstrate how to ingest, process, and analyze Vancouver's graffiti dataset using AWS services. This analysis focuses on understanding the number of graffiti incidents across different areas. AWS services like S3 (Simple Storage Service), Glue (ETL), and Athena (SQL querying) were utilized to process and explore the dataset.
