@@ -4,7 +4,7 @@
 # Project 1 - Graffiti Analysis of Vancouver City Areas
 
 ## Project Description:
-Performing a descriptive data analysis on the Vancouver Graffiti dataset using AWS services to ingest and analyze data efficiently, uncovering the number of graffiti incidents in the Sunset and Renfrew-Collingwood areas.
+Performe a descriptive data analysis on the Vancouver Graffiti dataset using AWS services to ingest and analyze data efficiently, uncovering the number of graffiti incidents in the Sunset and Renfrew-Collingwood areas.
 
 ## Understanding Graffiti in Vancouver: A Descriptive Analysis Using AWS
 
@@ -27,7 +27,7 @@ The Vancouver Graffiti dataset contains information about graffiti incidents in 
   - Glue jobs will clean and prepare the dataset, making it ready for analysis.
 - **Data Querying**: Use AWS Athena to query the data directly from S3 using SQL queries, enabling efficient exploration without needing to move the data elsewhere.
 
-<glue image>
+<img width="1713" alt="image" src="https://github.com/user-attachments/assets/0762610a-52d2-4d9f-b84e-5fe16842dcd6">
 
 ### 2. Descriptive Statistics:
 - **Summary**:
@@ -41,18 +41,19 @@ The Vancouver Graffiti dataset contains information about graffiti incidents in 
   - **Count**: Number of graffiti encountered in that area.
 - Created a dashboard in Cloudwatch so cost can be visualised and managed by alerts with a SNS message alert.
 
+<img width="1701" alt="image" src="https://github.com/user-attachments/assets/e09c2d83-78cb-4d5e-9ce5-3a6cf4c73d13">
+
 ### 4. Descriptive Analysis:
 - **Neighborhood Breakdown**:
   - Analyzed graffiti reports across different neighborhoods in Vancouver to identify areas with high incident rates.
   - Use SQL queries in Athena to break down data by categories.
 - **Trend Analysis**:
-  - Explore the temporal trends in graffiti reporting, such as seasonal peaks.
+  - Explore the trends of graffiti in different areas.
   - Generate monthly and quarterly aggregates using SQL queries in Athena.
 
 ### 5. Insights and Findings:
 - **Neighborhood Insights**: Summarize key findings such as which neighborhoods experience the most graffiti and potential reasons behind the trends.
-- **Graffiti Type Patterns**: Highlight the most common types of graffiti (e.g., Tagging vs. Mural) and how they vary by location.
-- **Property Type Impact**: Explore which property types (e.g., Commercial vs. Residential) are more frequently targeted and why.
+- **Property Type Impact**: Explore which areas the graffiti could impact the properties.
 - **Seasonality in Graffiti**: Identify any patterns of graffiti reporting over time, such as higher incidents during specific seasons or events.
 
 ## Tools and Technologies:
