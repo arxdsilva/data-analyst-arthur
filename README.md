@@ -1,6 +1,5 @@
 # Projects
 
-
 # Project 1 - Graffiti Analysis of Vancouver City Areas
 
 ## Project Description:
@@ -72,7 +71,7 @@ The Vancouver Graffiti dataset contains information about graffiti incidents in 
 - Visualizations summarizing key insights from the analysis.
 - A final report or presentation showcasing descriptive analysis and insights derived from the graffiti dataset.
 
-
+-----------------------
 # Project 2 - Building an AWS Data Analytics Platform for the City of Vancouver
 
 ## Project Description:
@@ -142,4 +141,89 @@ The platform was ingested with the Vancouver's graffiti dataset described in Pro
 - **Scalability**: AWS’s infrastructure allows the platform to scale as new datasets and services are added.
 - **Cost-Effectiveness**: By leveraging serverless tools like Athena and Glue, the city can process large amounts of data without needing extensive hardware infrastructure.
 
+
+# Project 3 - Task Completion Efficiency Analysis for UCW HR using AWS Glue
+
+## Project Description:
+Performing an efficiency analysis of the UCW HR office team’s task completion rates using AWS Glue to process and transform the data. The goal is to understand task completion efficiency based on task priority, assigned team member, and the average time taken to complete tasks across projects.
+
+## Objective:
+The main objective is calculating how efficiently the team completes tasks, considering task priority, individual team performance, and project type. This analysis helps HR track which projects or priorities cause delays and which team members complete tasks more efficiently.
+
+## Input Dataset:
+The input dataset will consist of task-related information, captured in a CSV format with fields:
+- **taskID**: Unique identifier for each task.
+- **TaskDescription**: Description of the task.
+- **ProjectID**: Unique identifier for the project the task is part of.
+- **ProjectName**: Name of the project.
+- **AssignedTo**: The team member assigned to the task.
+- **StartDate**: Start date of the task.
+- **EndDate**: Expected end date of the task.
+- **Status**: Current task status (e.g., Completed, In Progress, Not Started).
+- **Priority**: Task priority level (e.g., Low, Medium, High).
+- **CompletionDate**: The actual completion date of the task.
+
+### Example Input Dataset:
+```csv
+taskID,TaskDescription,ProjectID,ProjectName,AssignedTo,StartDate,EndDate,Status,Priority,CompletionDate
+101,Design the Homepage,501,Website Redesign,John Doe,2023-01-05,2023-01-20,Completed,High,2023-01-19
+102,Backend API Setup,501,Website Redesign,Jane Smith,2023-01-05,2023-01-22,In Progress,High,
+103,Content Writing,502,Marketing Plan,John Doe,2023-02-01,2023-02-10,Completed,Medium,2023-02-08
+```
+
+## Methodology:
+
+### 1\. Data Ingestion:
+-   **Data Storage**: The input dataset will be uploaded to an AWS S3 bucket. S3 will store the data securely and will act as the source for further processing.
+-   **Data Processing**:
+    -   AWS Glue will be used to clean and transform the data, particularly calculating the tasks completed each year.
+    -   AWS Glue will also handle incomplete tasks (i.e., those without a `CompletionDate`).
+
+### 2\. Efficiency Metrics:
+-   **Task Completion Rate**:
+    -   Calculate the task completion rate as tasks that have a `CompletionDate`.
+    -   Use AWS Glue to create new fields such as `TaskDateYear`.
+-   **Completion Rate by Priority**:
+    -   Calculate the completion rate of tasks by year (e.g., percentage of tasks completed).
+    -   Summarize this by calculating the total number of tasks completed divided by the total number of tasks assigned.
+
+![image](https://github.com/user-attachments/assets/061e5371-7ba2-47ff-84b8-d8683ed1399b)
+
+### 3\. Descriptive Statistics:
+-   **Summary Statistics**:
+    -   Use Glue to calculate the average `CompletionRate` across all years.
+    -   Provide breakdowns by year.
+    -   Example metrics:
+        -   Completion rate per year.
+
+### Sample Output Dataset:
+``` csv
+Year,Completion Rate (%)
+2024,30
+2023,85
+2022,55
+```
+
+### 4\. Data Querying and Reporting:
+-   **AWS Glue Processing**:
+    -   Once the data is cleaned and processed, AWS Glue jobs will output the data to S3 in CSV format.
+-   **Data Querying**:
+    -   If more analysis is needed, use AWS Athena to run SQL queries on the processed data. Athena can be used to group the data by team member, priority, or project to perform additional calculations.
+
+## Tools and Technologies:
+
+-   **AWS S3**: For storing the input and processed datasets securely.
+-   **AWS Glue**: For ETL (Extract, Transform, Load) processes, calculating task completion times, and generating efficiency metrics.
+-   **AWS Athena** (Optional): For querying the processed dataset.
+-   **AWS QuickSight / Power BI**: For data visualization, such as tracking the team's task completion efficiency over time.
+
+## Deliverables:
+-   **Processed Dataset**: A CSV file containing efficiency metrics such as average task completion time and completion rate by priority.
+    -   Fields: `Year`, `TaskCompletionRate(%)`.
+-   **Reports**: Insights based on task completion efficiency over time, highlighting:
+    -   Year that tasks were completed.
+
+## Benefits to UCW HR:
+-   **Performance Tracking**: HR can track team performances over time, seeing who completes tasks efficiently and who might need additional support.
+-   **Data-Driven Decisions**: Helps HR make informed decisions on workload distribution, performance reviews, and team resource allocation.
 
